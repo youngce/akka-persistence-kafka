@@ -167,7 +167,7 @@ private class KafkaJournalWriter(index:Int,config: KafkaJournalConfig,serializat
       }
       msgProducer.commitTransaction()
 
-      if(recordEvents.size>0) {
+      if(recordEvents.nonEmpty) {
         evtProducer.beginTransaction()
         recordEvents.foreach { recordMsg =>
           sendFuture(evtProducer, recordMsg)

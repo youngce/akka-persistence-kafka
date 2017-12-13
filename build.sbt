@@ -14,18 +14,20 @@ parallelExecution in Test := false
 
 publishArtifact in Test := true
 
+val AKKA_VERSION="2.5.8"
+val KAFKA_VERSION="1.0.0"
 libraryDependencies ++= Seq(
-  "com.google.protobuf"  % "protobuf-java"                 % "2.6.1",
-  "com.typesafe.akka"   %% "akka-persistence"              % "2.5.3",
-  "com.typesafe.akka"   %% "akka-persistence-tck"          % "2.5.3" % Test,
-  "com.typesafe.akka"   %% "akka-testkit"                  % "2.5.3" % Test,
-  "org.apache.kafka"    %% "kafka"                         % "1.0.0",
-  "org.apache.kafka"    %% "kafka"                         % "1.0.0"  % Test classifier "test",
-  "org.apache.kafka"         % "kafka-clients"            % "1.0.0",
-  "org.apache.kafka"         % "kafka-clients"            % "1.0.0" % Test classifier "test",
-  "org.apache.curator"   % "curator-test"                  % "3.3.0"    % Test,
-  "org.slf4j" 		 % "slf4j-log4j12" 		   % "1.7.25"	% Test,
-  "com.typesafe.akka" 	%% "akka-slf4j" 		   % "2.5.3"	% Test
+  "com.google.protobuf"    % "protobuf-java"          % "3.5.0",
+  "com.typesafe.akka"     %% "akka-persistence"       % AKKA_VERSION,
+  "com.typesafe.akka"     %% "akka-persistence-tck"   % AKKA_VERSION    % Test,
+  "com.typesafe.akka"     %% "akka-testkit"           % AKKA_VERSION    % Test,
+  "org.apache.kafka"      %% "kafka"                  % KAFKA_VERSION,
+  "org.apache.kafka"      %% "kafka"                  % KAFKA_VERSION   % Test classifier "test",
+  "org.apache.kafka"       % "kafka-clients"          % KAFKA_VERSION,
+  "org.apache.kafka"       % "kafka-clients"          % KAFKA_VERSION   % Test classifier "test",
+  "org.apache.curator"     % "curator-test"           % "4.0.0"         % Test,
+  "org.slf4j" 		          % "slf4j-log4j12" 		      % "1.7.25"	       % Test,
+  "com.typesafe.akka"     %% "akka-slf4j" 		          % AKKA_VERSION	   % Test
 )
 
 /*artifactName := { (sv: ScalaVersion, module: ModuleID, artifact: Artifact) =>
